@@ -1,0 +1,399 @@
+@import "null";
+
+$family:'Inter', sans-serif;
+$font-h3: 700 normal 38px/132% $family;
+$font-p: 400 normal 18px/178% $family;
+$color_lite1:#DBE4F1;
+$color_lite2:#F8F8FE;
+$color_white:#FFFFFF;
+$color_button:#0F3D33;
+$color_black:#000000;
+$color_violet:#A665FB;
+$color_green-lite:#50E3C2;
+$color_pink:#FC5C65;
+$color_grey: #8E8E8E;
+$color_grey-lite: #666666;
+
+@mixin button($br, $bg, $pv, $ph){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $br;
+  background-color: $bg;
+  color: $color_button;
+  padding: $pv $ph;
+  font: bold normal 16px/19px $family;
+}
+@mixin cont($min-h, $backg,) {
+  min-height: $min-h;
+  background-color: $backg;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+@mixin circle ($size, $backgr, $op){
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color:$backgr;
+  opacity: $op;
+  margin: 0 auto;
+}
+
+.wrapper{
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  font-family:$family;
+}
+.button-start{
+  @include button(3px, $color_green-lite, 15px, 28px);
+}
+.header{
+  min-height: 145px;
+  position: absolute;
+  top:0;
+  left:0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  .header__container {
+    margin: 0 auto;
+    padding: 10px;
+    width: 74%;
+  }
+  .header__body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__menu{
+    .menu__list{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .menu__item{
+        margin-left: 40px;
+        a{
+          font-family:$family;
+          font-size: 16px;
+          line-height: 150%;
+          color:$color_lite1;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+.content-body {
+  background: url("../img/fon.png") center center no-repeat;
+  padding: 185px 0 90px 0;
+  .content-top__container{
+    max-width: 605px;
+    display: flex;
+    margin: 0 auto;
+    flex-flow: column wrap;
+    align-items: center;
+    .content-top__title{
+      font: normal bold 46px/148% $family;
+      letter-spacing: -0.3px;
+      color: $color_white;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+    .content-top__text{
+      font: normal normal 20px/34px $family;
+      color: $color_lite1;
+      text-align: center;
+      margin-bottom: 27px;
+    }
+    .content-top__button{
+      margin-bottom: 11px;
+    }
+    .content__text-small{
+      font: normal normal 100%/28px $family;
+      color: $color_lite1;
+      text-align: center;
+    }
+  }
+}
+
+.feature{
+  background-color: #FFFFFF;
+  .feature__container{
+    width: 69%;
+    min-height: 243px;
+    margin: 0 auto;
+    padding-top: 146px;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  .feature__block{
+    width: 28%;
+    .oval{
+      position: relative;
+      @include circle (50px, $color_pink, 0.06);
+      z-index: 1;
+      .oval__small{
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 50;
+        @include circle (10px, $color_pink, 1);
+      }
+    }
+    h3{
+      font: normal bold 22px/155% $family;
+      padding-top: 33px;
+      padding-bottom: 24px;
+    }
+    p{
+      font: normal normal 18px/189% $family;
+    }
+  }
+  }
+}
+
+.content-block {
+  .content1 {
+    margin-top: 166px;
+    @include cont(704px, $color_lite2);
+    .content__img {
+      position: relative;
+      width: 487px;
+      height: 464px;
+
+      .content__img__back {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.103346);
+      }
+
+      .content__img__front {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.136011);
+      }
+    }
+  }
+  .content2 {
+    @include cont(649px, $color_white);
+    .content__img {
+      position: relative;
+      width: 549px;
+      height: 409px;
+      .content__img__back {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.103346);
+      }
+      .content__img__front {
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 22px 54px rgba(0, 0, 0, 0.136011);
+      }
+    }
+  }
+  .content__text {
+    width: 22%;
+    h3 {
+      font: $font-h3;
+      letter-spacing: -0.3px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      font: $font-p;
+      margin-bottom: 29px;
+    }
+
+    .button-start {
+      @include button(3px, $color_green-lite, 15px, 16px);
+    }
+
+    button {
+      opacity: 14%;
+    }
+  }
+}
+.pricing{
+  position:relative;
+  .pricing__header {
+    position: relative;
+    background-color:$color_lite2;
+    min-height: 507px;
+    text-align: center;
+    h3 {
+      font: $font-h3;
+      padding-top: 120px;
+    }
+    p {
+      font: $font-p;
+      padding-top: 20px;
+    }
+  }
+    .pricing__list{
+    display: flex;
+    justify-content: center;
+    .pricing__price:not(:last-child){
+      margin-right: 30px;
+    }
+    .pricing__price{
+      background-color: $color_white;
+      position: relative;
+      top: -100px;
+      display: inline-block;
+      height: 515px;
+      width: 350px;
+      padding: 28px 50px 29px 45px;
+
+      h4{
+        color: #878B90;
+        font: normal bold 13px/246% $family;
+        letter-spacing: 0.433333px;
+        text-transform: uppercase;
+      }
+      .pricing__price__cost {
+        .dollar {
+          font: normal bold 30px/36px $family;
+          letter-spacing: -1.2px;
+        }
+        .dollar__cost{
+          font: normal bold 46px/130% $family;
+        }
+        .dollar__period{
+          font: normal bold 17px/21px $family;
+        }
+      }
+      .pricing__price__text{
+        font: normal normal 14px/164% $family;
+        margin-top: 14px;
+        margin-bottom: 26px;
+      }
+      .pricing__price__list{
+        margin-bottom: 30px;
+        li{
+          font: normal normal 18px/178% $family;
+          letter-spacing: -0.45px;
+          .img__list{
+            margin-top: 13px;
+            margin-right: 10px;
+          }
+        }
+        .text__line-through{
+          text-decoration: line-through;
+          color: $color_grey;
+        }
+      }
+      .pricing__price__small{
+        margin-top: 14px;
+        font: normal normal 14px/200% $family;
+        letter-spacing: -0.4px;
+        color: $color_grey-lite;
+      }
+    }
+      .pricing__price:hover{
+        border-top: 6px solid $color_green-lite;
+      }
+  }
+}
+.testimonial{
+  width: 71.5%;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #E8E8EA;
+  border-radius: 10px;
+  .testimonial__block:nth-child(2n){
+    border-right: 1px solid #E8E8EA;
+    border-left: 1px solid #E8E8EA;
+  }
+.testimonial__block{
+  width: 33.3%;
+  min-height: 405px;
+  padding: 0 46px 48px 46px;
+  .testimonial__quotes{
+    font: normal normal 98px/119px $family;
+    letter-spacing: -0.1px;
+    color: #DBE4F1;
+  }
+  .testimonial__text {
+    width: 80%;
+    font: $font-p;
+    min-height: 160px;
+  }
+  .testimonial__author{
+    font: normal bold 16px/175% $family;
+    text-align: center;
+    letter-spacing: -0.3px;
+    color: #323232;
+    margin-top: 40px;
+  }
+  .testimonial__from{
+    font: normal normal 14px/200% $family;
+    text-align: center;
+    letter-spacing: -0.3px;
+    color: #323232;
+  }
+}
+}
+
+.footer {
+  height: 432px;
+  background: linear-gradient(315.06deg, #152649 5%, #4F525C 100%);
+  margin-top: 142px;
+  padding: 60px 270px 40px 230px;
+  .footer__links ul{
+    display: flex;
+    justify-content: space-between;
+    li{
+      width: 165px;
+      height: 32px;
+        a {
+          font: normal normal 14px/229% $family;
+          color: #DBE4F1;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      ul{
+        padding-top: 23px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        li{
+          margin-bottom: 12px;
+          a{
+            font: normal normal 16px/212% $family;
+            color: $color_lite2;
+          }
+        }
+      }
+    }
+  }
+.footer__about{
+  font: normal normal 12px/150% $family;
+  color: #DBE4F1;
+  display: flex;
+  margin-top: 281px;
+  .footer__group{
+    margin-left: 12%;
+
+    a{
+      color: #DBE4F1;
+      margin-right: 20px;
+    }
+  }
+}
+}
+
+
+
+
